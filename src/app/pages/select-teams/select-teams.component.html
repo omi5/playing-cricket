@@ -1,0 +1,23 @@
+<div class="container1">
+    <div class="selected-div">
+        <h1>Let's play Cricket</h1>
+        <p>Please select two teams to start playing!</p>
+        <div *ngIf="this.selectedCountries.length > 0">
+            <h2>Selected Countries are :</h2>
+            <div *ngFor="let country of selectedCountries">
+                <p>{{country.name}}</p>
+            </div>
+        </div>
+        <div class="btn-div" style="margin-bottom: 20px;">
+            <button type="button" [disabled]="isSelected" (click)="onPlay()">Play</button>
+        </div>
+    </div>
+</div>
+<div class="container" > 
+    <div class="flag-div" style="margin-top: 30px;">
+        <div class="flag" *ngFor="let country of countries" (click)="onSelect(country.abbreviation)">
+            <img src="{{country.flag}}" alt="flag">
+            <p>{{country.abbreviation}}</p>
+        </div>
+    </div>
+</div>

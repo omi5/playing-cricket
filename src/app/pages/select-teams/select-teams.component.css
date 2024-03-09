@@ -1,0 +1,46 @@
+.container1{
+    text-align: center;
+    height: auto;
+    margin-bottom: 20px;
+}
+.container{
+    text-align: center;
+}
+.container1 h1{
+    font-size: 46px;
+}
+.container1 p{
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;    
+}
+
+.container1 .btn-div button{
+    width: 120px;
+    border: none;
+    padding: 8px 8px;
+    font-size: 22px;
+    background-color: cadetblue;
+    color: #fff;
+    margin-top: 25px;
+    cursor: pointer;
+}
+.selected-div{
+    height: auto;
+    margin-bottom: 20px !important;
+}
+.flag-div img{
+    width: 200px;
+}
+.flag-div{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 60%;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 10px;
+    
+}
+

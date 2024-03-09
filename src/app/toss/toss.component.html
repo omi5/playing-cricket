@@ -1,0 +1,10 @@
+<div class="container">
+    <h1>Select who will bowl first</h1>
+    <div class="flag-div" style="margin-top: 30px;">
+        <div class="flag" *ngFor="let country of selectedCountries" >
+            <img src="{{country.flag}}" alt="flag">
+            <p>{{country.abbreviation}}</p>
+            <button type="button" (click)="onSelect(country.name)">Select</button>
+        </div>
+    </div>
+</div>

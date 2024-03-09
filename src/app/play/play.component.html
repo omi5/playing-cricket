@@ -1,0 +1,136 @@
+<div class="container">
+    <div class="main-div">
+        <h1>Let's play Cricket</h1>
+        <p>{{selectedCountries[0].name }} VS {{selectedCountries[1].name}}</p>
+        <p class="ballFirst-pera"> <span>{{whoWillBallFirst}}</span> has won the toss and elected to ball first</p>
+        <!-- <div class="btn-div">
+            <button type="button">Start first innings</button>
+        </div> -->
+    </div>
+    <!-- *ngIf="!secondInningsStatus" -->
+    <div *ngIf="!secondInningsStatus"  class="matchFinish-div">
+       <p>Match Finished. <span class="font-bold">Well Done!</span></p> 
+    </div>
+    <!-- *ngIf="!secondInningsStatus && !isTheMatchTied" {{margin}} {{winner}} -->
+    <div *ngIf="!secondInningsStatus && !isTheMatchTied" class="matchFinish-div">
+        <p><span class="font-bold"> {{winner}}</span> has won the match by <span class="font-bold">{{margin}}</span> runs.</p>
+    </div>
+    <!-- *ngIf="!secondInningsStatus && isTheMatchTied" {{firstInnings.totalRuns}} -->
+    <div  *ngIf="!secondInningsStatus && isTheMatchTied" class="matchFinish-div">
+        <p><span class="font-bold">Match Tied!</span> Both teams have scored <span class="font-bold"></span> runs.</p>
+    </div>
+
+    <!-- tables start from here -->
+    <div class="table-div">
+        <!-- First Innings Div -->
+        <div
+        *ngIf="!firstInningsStatus"
+          class="first-innings-div"
+        >
+          <div class="">
+            First Innings :
+            <span class="font-bold">{{ firstInnings.team }}</span> Total Score :
+            <span class="font-bold">{{ firstInnings.totalRuns }}</span>
+          </div>
+          <table
+            class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
+          >
+            <thead class="text-xs text-gray-700 uppercase dark:text-gray-400">
+              <tr class="border-b border-gray-400">
+                <th scope="col" class="px-24 py-3 bg-gray-50 dark:bg-gray-800">
+                  Over
+                </th>
+                <th scope="col" class="px-24 py-3">Run</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                class="border-b border-gray-200 dark:border-gray-700"
+                *ngFor="let run of firstInnings.runs; let i = index"
+              >
+                <th
+                  scope="row"
+                  class="px-24 py-3 font-medium text-gray-700 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800"
+                >
+                  {{ firstInnings.over[i] }}
+                </th>
+                <td class="px-24 py-3 text-gray-800">
+                  {{ run }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    
+        <!-- Second Innings Div -->
+        <div
+          class="relative overflow-x-auto border-black border-2 mt-4 sm:rounded-lg"
+          *ngIf="!secondInningsStatus"
+          class="first-innings-div"
+        >
+          <div class="my-2 ml-16">
+            Second Innings :
+            <span class="font-bold">{{ secondInnings.team }}</span> Total Score :
+            <span class="font-bold">{{ secondInnings.totalRuns }}</span>
+          </div>
+          <table
+            class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
+          >
+            <thead class="text-xs text-gray-700 uppercase dark:text-gray-400">
+              <tr class="border-b border-gray-400">
+                <th scope="col" class="px-24 py-3 bg-gray-50 dark:bg-gray-800">
+                  Over
+                </th>
+                <th scope="col" class="px-24 py-3">Run</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                class="border-b border-gray-200 dark:border-gray-700"
+                *ngFor="let run of secondInnings.runs; let i = index"
+              >
+                <th
+                  scope="row"
+                  class="px-24 py-3 font-medium text-gray-700 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800"
+                >
+                  {{ secondInnings.over[i] }}
+                </th>
+                <td class="px-24 py-3 text-gray-800">
+                  {{ run }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="btn-div">
+      <button
+        type="button"
+        (click)="onStartFirstInnings()"
+        *ngIf="firstInningsStatus"
+        class="text-white bg-gradient-to-br mt-2 from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-lg px-4 py-1 text-center me-2 mb-2"
+      >
+        Start First Innings
+      </button>
+    </div>
+    <div class="btn-div">
+      <button
+        type="button"
+        (click)="onStartSecondInnings()"
+        *ngIf="secondInningsStatus && !firstInningsStatus"
+        class="text-white bg-gradient-to-br mt-2 from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-lg px-4 py-1 text-center me-2 mb-2"
+      >
+        Start Second Innings
+      </button>
+    </div>
+    <div class="btn-div">
+      <button
+        type="button"
+        *ngIf="!secondInningsStatus"
+        routerLink="/matches"
+        class="text-white bg-gradient-to-br mt-2 from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-lg px-4 py-1 text-center me-2 mb-2"
+      >
+        See All Matches
+      </button>
+    </div>
+</div>

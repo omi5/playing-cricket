@@ -1,0 +1,27 @@
+.container{
+    text-align: center;
+    width: 100vw;
+}
+.flag-div img{
+    width: 200px;
+}
+.flag-div{
+    text-align: center;
+    margin: 00 auto;
+    width: 30%;
+    display: grid;
+    grid-template-columns: auto auto ;
+    gap: 10px;
+    
+}
+.flag-div button{
+    width: 120px;
+    border: none;
+    padding: 8px 8px;
+    font-size: 22px;
+    background-color: cadetblue;
+    color: #fff;
+    margin-top: 25px;
+    cursor: pointer;
+    border-radius: 12px;
+}

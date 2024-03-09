@@ -1,0 +1,36 @@
+.container{
+    background-image: url(../../../assets/bg1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+.center-div{
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+}
+.center-div h1{
+    font-size: 60px;
+
+}
+.center-div p{
+    font-size: 32px;
+}
+.center-div button{
+    margin-top: 25px;
+    padding: 8px 8px;
+    width: 140px;
+    font-size: 22px;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    cursor: pointer;
+}
